@@ -1,4 +1,5 @@
 'use strict'
+var elGallery = document.querySelector('.image-gallery')
 
 renderGallery()
 function renderGallery() {
@@ -9,8 +10,6 @@ function renderGallery() {
 
     });
 
-    var elGallery = document.querySelector('.image-gallery')
-    console.log(elGallery);
     elGallery.innerHTML = galleryHTML;
 
 }
@@ -20,8 +19,6 @@ function getImages() {
 }
 
 function onImageClicked(imgId) {
-    console.log(imgId)
-    gCurrImgSrc = gImgs[imgId-1].url;
-    draw(gCurrImgSrc)
-    renderGallery()
+    gMeme.selectedImgId = imgId - 1;
+    draw()
 }

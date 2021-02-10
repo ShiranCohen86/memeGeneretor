@@ -1,5 +1,6 @@
 .canvas-container {
     border: 2px solid red;
+    display: flex;
 }
 .canvas-display{
     border: 2px solid blue;

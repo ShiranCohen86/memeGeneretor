@@ -7,11 +7,15 @@ var gCurrShape;
 function init() {
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
-    drawImg()
+    draw()
+}
+function onUpdateLineTxt(txt) {
+    updateLineTxt(txt);
+    draw();
 }
 
 
-function drawImg() {
+function draw() {
     const img = new Image()
     img.src = gImgs[0].url;
     img.onload = () => {
@@ -23,7 +27,7 @@ function drawImg() {
 function drawText(text, x, y) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
-    gCtx.fillStyle = 'red'
+    gCtx.fillStyle = 'white'
     gCtx.font = '40px Impact'
     gCtx.textAlign = 'center'
     gCtx.fillText(text, x, y)

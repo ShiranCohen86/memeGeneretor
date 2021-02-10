@@ -15,3 +15,7 @@ var gMeme = {
         }
     ]
 }
+
+function updateLineTxt(txt) {
+    gMeme.lines[0].txt = txt;
+}

@@ -1,7 +1,6 @@
 'use strict'
 var elGallery = document.querySelector('.image-gallery')
 
-renderGallery()
 function renderGallery() {
     var galleryHTML = '';
     const galleryImages = getImages()

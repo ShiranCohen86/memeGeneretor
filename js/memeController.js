@@ -2,53 +2,70 @@
 
 var gElCanvas;
 var gCtx;
-var gFontSize = 40;
-var gCurrLineX;
-var gCurrLineY;
 
 
 function init() {
-    gElCanvas = document.getElementById('my-canvas')
+    gElCanvas = document.getElementById('meme-canvas')
     gCtx = gElCanvas.getContext('2d')
-    draw()
     renderGallery()
+    addMeme()
 }
 
-function onUpdateLineTxt(txt) {
-    updateLineTxt(txt);
-    draw();
+function onUpdateMemeTxt(txt) {
+    updateMemeTxt(txt);
+    drawMeme();
 }
 
+function drawMeme(mark = true) {
+    var img = new Image();
+    img.src = `img/${getCurrMeme().selectedImgId}.jpg`;
 
-function draw() {
-    const img = new Image()
-    img.src = gImgs[gMeme.selectedImgId].url;
     img.onload = () => {
-        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText(gMeme.lines[gMeme.selectedLineIdx].txt, gElCanvas.width / 2, gElCanvas.height / 8)
-    }
+        gElCanvas.height = gElCanvas.width * img.height / img.width;
+        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
+        setLinesWidth();
+
+        if (mark) markLineFocus();
+
+        getCurrMeme().lines.forEach((line) => drawTxtLine(line));
+        updateTextInput();
+    };
 }
 
-function drawText(txt, x, y) {
-    gCurrLineX = x;
-    gCurrLineY = y;
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'black'
-    gCtx.fillStyle = 'white'
-    gCtx.font = `${gFontSize}px Impact`
-    gCtx.textAlign = 'center'
-    gCtx.fillText(txt, x, y)
-    gCtx.strokeText(txt, x, y)
+function markLineFocus() {
+    const currLine = getCurrLine();
+    gCtx.beginPath();
+    gCtx.fillStyle = 'rgba(0, 162, 255, 0.4)';
+    gCtx.rect((currLine.location.x - currLine.width / 2) - 10, currLine.location.y - currLine.fontSize, currLine.width + 20, currLine.fontSize + 5);
+    gCtx.fill();
 }
 
-function changeFontSize(direction) {
-    gFontSize += (direction === 'up') ? gFontSize / 2 : -gFontSize / 2;
-    draw()
+function drawTxtLine(line) {
+    gCtx.strokeStyle = line.stroke;
+    gCtx.fillStyle = line.color;
+    gCtx.textAlign = line.align;
+    gCtx.font = `${line.fontSize}px ${line.font}`;
+    gCtx.fillText(line.txt, line.location.x, line.location.y);
+    gCtx.strokeText(line.txt, line.location.x, line.location.y);
 }
 
+function updateTextInput() {
+    const currLineText = getCurrMeme().lines[getSelectedLine()].txt;
+    document.querySelector('#free-text').value = currLineText;
+}
 
-function changeLine(direction) {
-    var txt = gMeme.lines[gMeme.selectedLineIdx].txt
-    var diff = (direction === 'up') ? -gFontSize : gFontSize;
-    drawText(txt, gCurrLineX, gCurrLineY + diff)
+function onAddText() {
+    addMeme();
+    drawMeme();
+}
+
+function onMoveLine(direction) {
+    (direction === 'up') ? upDownLine(-10) : upDownLine(10);
+    drawMeme();
+}
+
+function onSwitchLine() {
+    switchSelectedLines();
+    updateTextInput();
+    drawMeme();
 }

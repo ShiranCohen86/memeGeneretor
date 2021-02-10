@@ -13,15 +13,17 @@
 <body onload="init()">
     <div class="canvas-container">
         <div class="canvas-display">
-            <canvas id="my-canvas" height="450" width="450" onclick=""></canvas>
+            <canvas id="meme-canvas" height="500" width="500" onclick=""></canvas>
         </div>
         <div class="canvas-features">
             <label for="free-text">Write:</label>
-            <input type="text" id="free-text" name="free-text" onkeyup="onUpdateLineTxt(value)">
-            <button class="increase-font" onclick="changeFontSize('up')">increaseFont</button>
-            <button class="decrease-font" onclick="changeFontSize('down')">decreaseFont</button>
-            <button class="line-up" onclick="changeLine('up')">☝️</button>
-            <button class="line-down" onclick="changeLine('down')">👇</button>
+            <input type="text" id="free-text" name="free-text" onkeyup="onUpdateMemeTxt(value)">
+            <button class="add-text" onclick="onAddText()">+</button>
+            <button class="increase-font" onclick="onChangeFontSize('up')">increaseFont</button>
+            <button class="decrease-font" onclick="onChangeFontSize('down')">decreaseFont</button>
+            <button class="line-up" onclick="onMoveLine('up')">☝️</button>
+            <button class="line-down" onclick="onMoveLine('down')">👇</button>
+            <button class="switch-line" onclick="onSwitchLine()">switch</button>
 
         </div>
 
@@ -32,8 +34,8 @@
 
     <script src="js/galleryService.js"></script>
     <script src="js/galleryController.js"></script>
-    <script src="js/memeController.js"></script>
     <script src="js/memeService.js"></script>
+    <script src="js/memeController.js"></script>
 </body>
 
 </html>

@@ -1,10 +1,80 @@
 'use strict'
 
-var gMeme = { selectedImgId: 0, selectedLineIdx: 0, lines: [{ txt: '' }] };
+const FONT_SIZE = 40;
+const ALIGN_TYPE = { LEFT: 'left', RIGHT: 'right', CENTER: 'center' };
+const DEFUALT_TXT_ALIGMENT = ALIGN_TYPE.CENTER;
+const TXT_COLOR = 'white';
+const FONT = 'Impact'
+const STROKE = 'black'
+const TXT_TOP_PADDING = 10;
 
-function updateLineTxt(userTxt) {
-    gMeme.lines[gMeme.selectedLineIdx].txt = userTxt;
+var gMeme = { selectedImgId: -1, selectedLineIdx: -1, lines: [] };
+
+function updateMemeTxt(txt) {
+    if (gMeme.selectedLineIdx === -1) return;
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt;
 }
+
 function getCurrMeme() {
     return gMeme;
+}
+
+function addMeme() {
+    var line = {
+        txt: `Insert Text`,
+        fontSize: FONT_SIZE,
+        align: DEFUALT_TXT_ALIGMENT,
+        color: TXT_COLOR,
+        font: FONT,
+        stroke: STROKE,
+        location: _getLinePosition()
+    };
+    gMeme.lines.push(line);
+    gMeme.selectedLineIdx = gMeme.lines.length - 1;
+}
+
+function getSelectedLine() {
+    return gMeme.selectedLineIdx;
+}
+
+function getCurrLine() {
+    return gMeme.lines[gMeme.selectedLineIdx];
+}
+
+function upDownLine(diff) {
+    var line = gMeme.lines[gMeme.selectedLineIdx]
+    line.location.y += diff
+}
+
+function switchSelectedLines() {
+    if (gMeme.selectedLineIdx + 1 === gMeme.lines.length) {
+        gMeme.selectedLineIdx = 0
+    } else {
+        gMeme.selectedLineIdx++
+    }
+}
+
+function setLinesWidth() {
+    gMeme.lines.forEach((line) => {
+        line.width = gCtx.measureText(line.txt).width * line.fontSize * 0.09;
+    });
+}
+
+function _getLinePosition() {
+    if (gMeme.lines.length > 0) {
+        const ys = Array.from(gMeme.lines.map((line) => {
+            return line.location.y;
+        }));
+
+        const maxY = Math.max(...ys);
+        const y = maxY + TXT_TOP_PADDING + FONT_SIZE;
+        const x = Math.floor(gElCanvas.width / 2);
+        if (y > gElCanvas.height) y = getRandomInteger(TXT_TOP_PADDING, gElCanvas.height);
+        return { x: x, y: y };
+    }
+    else {
+        const x = Math.floor(gElCanvas.width / 2);
+        const y = TXT_TOP_PADDING + FONT_SIZE;
+        return { x: x, y: y };
+    }
 }

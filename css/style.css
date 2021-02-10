@@ -1,0 +1,9 @@
+.canvas-container {
+    border: 2px solid red;
+}
+.canvas-display{
+    border: 2px solid blue;
+}
+#my-canvas{
+    border: 2px solid green;
+}

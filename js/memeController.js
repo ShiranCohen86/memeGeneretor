@@ -2,7 +2,7 @@
 
 var gElCanvas;
 var gCtx;
-var gCurrShape;
+var gCurrImgSrc;
 
 function init() {
     gElCanvas = document.getElementById('my-canvas')
@@ -11,13 +11,13 @@ function init() {
 }
 function onUpdateLineTxt(txt) {
     updateLineTxt(txt);
-    draw();
+    draw(gCurrImgSrc);
 }
 
 
-function draw() {
+function draw(imgUrl) {
     const img = new Image()
-    img.src = gImgs[0].url;
+    img.src = imgUrl;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         drawText(gMeme.lines[0].txt, gElCanvas.width / 2,  50)

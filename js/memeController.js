@@ -7,8 +7,7 @@ var gCtx;
 function init() {
     gElCanvas = document.getElementById('meme-canvas')
     gCtx = gElCanvas.getContext('2d')
- 
-
+    
     renderGallery()
     addMeme()
 }
@@ -19,6 +18,7 @@ function onUpdateMemeTxt(txt) {
 }
 
 function drawMeme(mark = true) {
+
     var img = new Image();
     img.src = `img/${getCurrMeme().selectedImgId}.jpg`;
 
@@ -79,9 +79,3 @@ function onChangeFontSize(direction) {
     drawMeme();
 }
 
-// function resizeCanvas() {
-//     const elContainer = document.querySelector('#meme-canvas');
-//     // Note: changing the canvas dimension this way clears the canvas
-//     gElCanvas.width = elContainer.offsetWidth
-//     gElCanvas.height = elContainer.offsetHeight
-// }

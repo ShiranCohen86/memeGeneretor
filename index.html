@@ -11,24 +11,38 @@
 </head>
 
 <body onload="init()">
-    <div class="canvas-container">
-        <div class="canvas-display">
-            <canvas id="meme-canvas" height="500" width="500" onclick=""></canvas>
-        </div>
-        <div class="canvas-features">
-            <label for="free-text">Write:</label>
-            <input type="text" id="free-text" name="free-text" onkeyup="onUpdateMemeTxt(value)">
-            <button class="add-text" onclick="onAddText()">+</button>
-            <button class="increase-font" onclick="onChangeFontSize('up')">increaseFont</button>
-            <button class="decrease-font" onclick="onChangeFontSize('down')">decreaseFont</button>
-            <button class="line-up" onclick="onMoveLine('up')">☝️</button>
-            <button class="line-down" onclick="onMoveLine('down')">👇</button>
-            <button class="switch-line" onclick="onSwitchLine()">switch</button>
+    <header class="main-header flex align-center space-between">
+        <a href="#" class="page-logo">Meme Generator</a>
+        <nav class="nav-bar">
+
+            <a href="#"> Gallery </a>
+            <a href="#"> About </a>
+
+        </nav>
+    </header>
+    <div class="main-container">
+        <div class="editor-container flex space-around wrap">
+            <div class="canvas-display">
+                <canvas id="meme-canvas" height="500" width="500" onclick=""></canvas>
+            </div>
+            <div class="canvas-features flex column">
+                <label for="free-text">Write:</label>
+                <input type="text" id="free-text" name="free-text" onkeyup="onUpdateMemeTxt(value)">
+                <button class="add-text" onclick="onAddText()">+</button>
+                <button class="increase-font" onclick="onChangeFontSize('up')">increaseFont</button>
+                <button class="decrease-font" onclick="onChangeFontSize('down')">decreaseFont</button>
+                <button class="line-up" onclick="onMoveLine('up')">☝️</button>
+                <button class="line-down" onclick="onMoveLine('down')">👇</button>
+                <button class="switch-line" onclick="onSwitchLine()">switch</button>
+
+            </div>
 
         </div>
-
     </div>
     <div class="image-gallery"></div>
+    <footer class="main-footer">
+        <p> &copy; coffeerights 2021 </p>
+    </footer>
 
 
 

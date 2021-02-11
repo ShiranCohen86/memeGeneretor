@@ -32,14 +32,6 @@ function drawMeme(mark = true) {
     };
 }
 
-function markLineFocus() {
-    const currLine = getCurrLine();
-    gCtx.beginPath();
-    gCtx.fillStyle = 'rgba(0, 162, 255, 0.4)';
-    gCtx.rect((currLine.location.x - currLine.width / 2) - 10, currLine.location.y - currLine.fontSize, currLine.width + 20, currLine.fontSize + 5);
-    gCtx.fill();
-}
-
 function drawTxtLine(line) {
     gCtx.strokeStyle = line.stroke;
     gCtx.fillStyle = line.color;
@@ -48,6 +40,16 @@ function drawTxtLine(line) {
     gCtx.fillText(line.txt, line.location.x, line.location.y);
     gCtx.strokeText(line.txt, line.location.x, line.location.y);
 }
+
+function markLineFocus() {
+    const currLine = getCurrLine();
+    gCtx.beginPath();
+    gCtx.fillStyle = 'rgba(0, 162, 255, 0.4)';
+    gCtx.rect((currLine.location.x - currLine.width / 2) - 10, currLine.location.y - currLine.fontSize, currLine.width + 20, currLine.fontSize + 5);
+    gCtx.fill();
+}
+
+
 
 function updateTextInput() {
     const currLineText = getCurrMeme().lines[getSelectedLine()].txt;
@@ -67,5 +69,10 @@ function onMoveLine(direction) {
 function onSwitchLine() {
     switchSelectedLines();
     updateTextInput();
+    drawMeme();
+}
+
+function onChangeFontSize(direction){
+    (direction === 'up') ? changeFontSize(10) : changeFontSize(-10);
     drawMeme();
 }

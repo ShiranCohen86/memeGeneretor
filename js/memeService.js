@@ -60,6 +60,11 @@ function setLinesWidth() {
     });
 }
 
+function changeFontSize(diff) {
+    var line = gMeme.lines[gMeme.selectedLineIdx]
+    line.fontSize += diff
+}
+
 function _getLinePosition() {
     if (gMeme.lines.length > 0) {
         const ys = Array.from(gMeme.lines.map((line) => {

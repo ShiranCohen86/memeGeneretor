@@ -18,5 +18,8 @@ function getImages() {
 
 function onImageClick(imgId) {
     gMeme.selectedImgId = imgId;
+    document.querySelector('.editor-container').style.display = 'flex';
+    document.querySelector('.image-gallery').style.display = 'none';
+
     drawMeme()
 }

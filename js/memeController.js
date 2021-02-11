@@ -7,6 +7,8 @@ var gCtx;
 function init() {
     gElCanvas = document.getElementById('meme-canvas')
     gCtx = gElCanvas.getContext('2d')
+ 
+
     renderGallery()
     addMeme()
 }
@@ -72,7 +74,14 @@ function onSwitchLine() {
     drawMeme();
 }
 
-function onChangeFontSize(direction){
+function onChangeFontSize(direction) {
     (direction === 'up') ? changeFontSize(10) : changeFontSize(-10);
     drawMeme();
+}
+
+function resizeCanvas() {
+    const elContainer = document.querySelector('#meme-canvas');
+    // Note: changing the canvas dimension this way clears the canvas
+    gElCanvas.width = elContainer.offsetWidth
+    gElCanvas.height = elContainer.offsetHeight
 }

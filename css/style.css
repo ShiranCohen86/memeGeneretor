@@ -17,9 +17,10 @@ main {
 
 .main-header {
     height: 100px;
+    width: 100%;
+
     background-color: aqua;
     margin-bottom: 10px;
-    
 }
 
 .flex {
@@ -33,6 +34,7 @@ main {
 .flex.justify-center {
     justify-content: center;
 }
+
 .flex.wrap {
     flex-wrap: wrap;
 }
@@ -64,6 +66,7 @@ main {
 }
 
 .main-footer {
+    width: 100%;
     position: fix;
     bottom: 0;
     height: 20px;
@@ -74,4 +77,11 @@ main {
 
 .editor-container {
     background-color: antiquewhite;
+}
+
+@media (max-width: 345px) {
+    #meme-canvas {
+        width: 300px;
+        height: 300px;
+    }
 }

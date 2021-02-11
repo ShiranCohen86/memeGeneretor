@@ -94,27 +94,27 @@ p {
 }
 
 .add-text {
-    background-image: url(/icons/add.png);
+    background-image: url(../icons/add.png);
 }
 
 .increase-font {
-    background-image: url(/icons/increase-font.png);
+    background-image: url(../icons/increase-font.png);
 }
 
 .decrease-font {
-    background-image: url(/icons/decrease-font.png);
+    background-image: url(../icons/decrease-font.png);
 }
 
 .line-up {
-    background-image: url(/icons/line-up.png);
+    background-image: url(../icons/line-up.png);
 }
 
 .line-down {
-    background-image: url(/icons/line-down.png);
+    background-image: url(../icons/line-down.png);
 }
 
 .switch-line {
-    background-image: url(/icons/switch-lines.png);
+    background-image: url(../icons/switch-lines.png);
 }
 
 button {

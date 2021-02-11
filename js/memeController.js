@@ -79,9 +79,9 @@ function onChangeFontSize(direction) {
     drawMeme();
 }
 
-function resizeCanvas() {
-    const elContainer = document.querySelector('#meme-canvas');
-    // Note: changing the canvas dimension this way clears the canvas
-    gElCanvas.width = elContainer.offsetWidth
-    gElCanvas.height = elContainer.offsetHeight
-}
+// function resizeCanvas() {
+//     const elContainer = document.querySelector('#meme-canvas');
+//     // Note: changing the canvas dimension this way clears the canvas
+//     gElCanvas.width = elContainer.offsetWidth
+//     gElCanvas.height = elContainer.offsetHeight
+// }

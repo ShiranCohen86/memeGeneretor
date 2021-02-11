@@ -79,7 +79,7 @@ main {
     background-color: antiquewhite;
 }
 
-@media (max-width: 345px) {
+@media (max-width: 480px) {
     #meme-canvas {
         width: 300px;
         height: 300px;

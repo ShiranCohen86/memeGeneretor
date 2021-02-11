@@ -1,9 +1,11 @@
 main {
     margin: 0 auto;
 }
+
 p {
     margin: 0;
 }
+
 .canvas-container {
     border: 2px solid red;
     display: flex;
@@ -20,7 +22,6 @@ p {
 .main-header {
     height: 100px;
     width: 100%;
-
     background-color: aqua;
     margin-bottom: 10px;
 }
@@ -78,15 +79,59 @@ p {
 }
 
 .editor-container {
-    background-color: antiquewhite;
+    background-color: rgb(215, 234, 250);
     /* display: flex; */
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+.image-gallery img {
+    width: 200px;
+}
+
+#free-text {
+    margin-bottom: 20px;
+}
+
+.add-text {
+    background-image: url(/icons/add.png);
+}
+
+.increase-font {
+    background-image: url(/icons/increase-font.png);
+}
+
+.decrease-font {
+    background-image: url(/icons/decrease-font.png);
+}
+
+.line-up {
+    background-image: url(/icons/line-up.png);
+}
+
+.line-down {
+    background-image: url(/icons/line-down.png);
+}
+
+.switch-line {
+    background-image: url(/icons/switch-lines.png);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    background-size: 30px;
 }
 
 @media (max-width: 480px) {
     #meme-canvas {
         width: 300px;
         height: 300px;
+    }
+    .image-gallery img {
+        width: 100px;
     }
 }

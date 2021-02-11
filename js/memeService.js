@@ -2,7 +2,7 @@
 
 const FONT_SIZE = 40;
 const ALIGN_TYPE = { LEFT: 'left', RIGHT: 'right', CENTER: 'center' };
-const DEFUALT_TXT_ALIGMENT = ALIGN_TYPE.CENTER;
+const DEFAULT_TXT_ALIGNMENT = ALIGN_TYPE.CENTER;
 const TXT_COLOR = 'white';
 const FONT = 'Impact'
 const STROKE = 'black'
@@ -23,7 +23,7 @@ function addMeme() {
     var line = {
         txt: `Insert Text`,
         fontSize: FONT_SIZE,
-        align: DEFUALT_TXT_ALIGMENT,
+        align: DEFAULT_TXT_ALIGNMENT,
         color: TXT_COLOR,
         font: FONT,
         stroke: STROKE,

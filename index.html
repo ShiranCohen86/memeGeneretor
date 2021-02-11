@@ -25,20 +25,25 @@
             <div class="canvas-display">
                 <canvas id="meme-canvas" height="500" width="500" onclick=""></canvas>
             </div>
-            <div class="canvas-features flex column">
+            <div class="canvas-features flex column align-center">
                 <label for="free-text">Write:</label>
                 <input type="text" id="free-text" name="free-text" onkeyup="onUpdateMemeTxt(value)">
-                <button class="add-text" onclick="onAddText()">+</button>
-                <button class="increase-font" onclick="onChangeFontSize('up')">increaseFont</button>
-                <button class="decrease-font" onclick="onChangeFontSize('down')">decreaseFont</button>
-                <button class="line-up" onclick="onMoveLine('up')">☝️</button>
-                <button class="line-down" onclick="onMoveLine('down')">👇</button>
-                <button class="switch-line" onclick="onSwitchLine()">switch</button>
+                <button class="add-text" onclick="onAddText()"></button>
+                <div class="text-size">
+                    <button class="increase-font" onclick="onChangeFontSize('up')"></button>
+                    <button class="decrease-font" onclick="onChangeFontSize('down')"></button>
+                </div>
+                <div class="move-select-line">
+                    <button class="line-up" onclick="onMoveLine('up')"></button>
+                    <button class="line-down" onclick="onMoveLine('down')"></button>
+
+                </div>
+                <button class="switch-line" onclick="onSwitchLine()"></button>
 
             </div>
 
         </div>
-        <div class="image-gallery flex wrap"></div>
+        <div class="image-gallery"></div>
     </div>
     <footer class="main-footer">
         <p> &copy; coffeerights 2021 </p>

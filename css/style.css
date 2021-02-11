@@ -1,7 +1,9 @@
 main {
     margin: 0 auto;
 }
-
+p {
+    margin: 0;
+}
 .canvas-container {
     border: 2px solid red;
     display: flex;
@@ -67,7 +69,7 @@ main {
 
 .main-footer {
     width: 100%;
-    position: fix;
+    position: absolute;
     bottom: 0;
     height: 20px;
     margin-top: 10px;
@@ -77,6 +79,9 @@ main {
 
 .editor-container {
     background-color: antiquewhite;
+    /* display: flex; */
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 @media (max-width: 480px) {

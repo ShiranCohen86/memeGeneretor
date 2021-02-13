@@ -1,5 +1,35 @@
-main {
+body {
     margin: 0 auto;
+    display: grid;
+    grid-template-rows: 100px 100% 50px;
+    grid-template-areas: "main-header" "main-container" "main-footer";
+}
+
+.main-header {
+    grid-area: main-header;
+}
+
+.main-container {
+    grid-area: main-container;
+}
+
+.main-footer {
+    grid-area: main-footer;
+}
+
+.main-container {
+    display: grid;
+    grid-template: "meme-interface";
+}
+
+.image-gallery {
+    grid-area: meme-interface;
+    background-color: white;
+}
+
+.editor-container {
+    grid-area: meme-interface;
+    z-index: -1;
 }
 
 p {
@@ -8,7 +38,6 @@ p {
 
 .canvas-container {
     border: 2px solid red;
-    display: flex;
 }
 
 .canvas-display {
@@ -20,46 +49,7 @@ p {
 }
 
 .main-header {
-    height: 100px;
-    width: 100%;
     background-color: aqua;
-    margin-bottom: 10px;
-}
-
-.flex {
-    display: flex;
-}
-
-.flex.space-between {
-    justify-content: space-between;
-}
-
-.flex.justify-center {
-    justify-content: center;
-}
-
-.flex.wrap {
-    flex-wrap: wrap;
-}
-
-.flex.align-center {
-    align-items: center;
-}
-
-.flex.column {
-    flex-direction: column;
-}
-
-.flex.space-around {
-    justify-content: space-around;
-}
-
-.page-logo {
-    margin: 10px;
-}
-
-.nav-bar {
-    margin: 10px;
 }
 
 .nav-bar li {
@@ -69,28 +59,11 @@ p {
 }
 
 .main-footer {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    height: 20px;
-    margin-top: 10px;
     background-color: aqua;
-    text-align: center;
 }
 
 .editor-container {
     background-color: rgb(215, 234, 250);
-    /* display: flex; */
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.image-gallery img {
-    width: 200px;
-}
-
-#free-text {
-    margin-bottom: 20px;
 }
 
 .add-text {

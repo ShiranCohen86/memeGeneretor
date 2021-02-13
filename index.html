@@ -11,7 +11,7 @@
 </head>
 
 <body onload="init()">
-    <header class="main-header flex align-center space-between">
+    <header class="main-header ">
         <a href="#" class="page-logo">Meme Generator</a>
         <nav class="nav-bar">
 
@@ -21,23 +21,18 @@
         </nav>
     </header>
     <div class="main-container">
-        <div class="editor-container" hidden>
+        <div class="editor-container">
             <div class="canvas-display">
                 <canvas id="meme-canvas" height="500" width="500" onclick=""></canvas>
             </div>
-            <div class="canvas-features flex column align-center">
+            <div class="canvas-features">
                 <label for="free-text">Write:</label>
                 <input type="text" id="free-text" name="free-text" onkeyup="onUpdateMemeTxt(value)">
                 <button class="add-text" onclick="onAddText()"></button>
-                <div class="text-size">
-                    <button class="increase-font" onclick="onChangeFontSize('up')"></button>
-                    <button class="decrease-font" onclick="onChangeFontSize('down')"></button>
-                </div>
-                <div class="move-select-line">
-                    <button class="line-up" onclick="onMoveLine('up')"></button>
-                    <button class="line-down" onclick="onMoveLine('down')"></button>
-
-                </div>
+                <button class="increase-font" onclick="onChangeFontSize('up')"></button>
+                <button class="decrease-font" onclick="onChangeFontSize('down')"></button>
+                <button class="line-up" onclick="onMoveLine('up')"></button>
+                <button class="line-down" onclick="onMoveLine('down')"></button>
                 <button class="switch-line" onclick="onSwitchLine()"></button>
 
             </div>

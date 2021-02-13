@@ -1,7 +1,9 @@
 body {
     margin: 0 auto;
 }
-
+a{
+    text-decoration: none;
+}
 .main-header {
     height: 100px;
     margin-bottom: 70px;
@@ -165,5 +167,12 @@ button {
         grid-template-columns: repeat(3, 50px);
         grid-template-rows: repeat(3, 50px);
         gap: 2.5px;
+    }
+    .main-header{
+        height: 50px;
+    }
+    .main-container{
+        margin-inline-start: 0;
+        margin-inline-end: 0;
     }
 }

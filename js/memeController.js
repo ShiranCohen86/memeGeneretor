@@ -22,7 +22,12 @@ function onUpdateMemeTxt(txt) {
 function drawMeme(mark = true) {
 
     var img = new Image();
-    img.src = `img/${getCurrMeme().selectedImgId}.jpg`;
+    if (gStorageMemes.length && gStorageMemes[getCurrMeme().selectedImgId] && gStorageMemes[getCurrMeme().selectedImgId].isSavedLocal) {
+        img.src = gStorageMemes[getCurrMeme().selectedImgId].imgContent
+    } else {
+
+        img.src = `img/${getCurrMeme().selectedImgId}.jpg`;
+    }
 
     img.onload = () => {
         gElCanvas.height = gElCanvas.width * img.height / img.width;
@@ -84,7 +89,7 @@ function onChangeFontSize(direction) {
 function onSaveImage(elLink) {
     var imgContent = gElCanvas.toDataURL(); //.replace("image/png", "image/octet-stream")
     elLink.href = imgContent
-    gStorageMemes.push(imgContent)
+    gStorageMemes.push({ imgContent, id: gStorageMemes.length + 1, isSavedLocal: true })
 
 
     saveToStorage('MEMES', gStorageMemes);

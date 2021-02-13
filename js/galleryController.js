@@ -6,7 +6,7 @@ function renderGallery() {
     const galleryImages = getImages()
 
     gStorageMemes.forEach(image => {
-        galleryHTML += `<img src="${image}">`
+        galleryHTML += `<img src="${image}" onClick="onImageClick(${image.id})">`
 
     });
     galleryImages.forEach(image => {
@@ -24,6 +24,7 @@ function getImages() {
 }
 
 function onImageClick(imgId) {
+    
     gMeme.selectedImgId = imgId;
     document.querySelector('.editor-container').style.display = 'flex';
     document.querySelector('.image-gallery').style.display = 'none';
@@ -34,4 +35,5 @@ function goGallery() {
     document.querySelector('.editor-container').style.display = 'none';
     document.querySelector('.image-gallery').style.display = 'grid';
     renderGallery();
+    drawMeme()
 }

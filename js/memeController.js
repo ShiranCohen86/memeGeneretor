@@ -2,7 +2,7 @@
 
 var gElCanvas;
 var gCtx;
-var gStorageMemes = [];
+var gStorageMemes = loadFromStorage('MEMES') || [];
 
 
 
@@ -82,7 +82,7 @@ function onChangeFontSize(direction) {
 }
 
 function onSaveImage(elLink) {
-    var imgContent = gElCanvas.toDataURL('image/jpeg')
+    var imgContent = gElCanvas.toDataURL(); //.replace("image/png", "image/octet-stream")
     elLink.href = imgContent
     gStorageMemes.push(imgContent)
 

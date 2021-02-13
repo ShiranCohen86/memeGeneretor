@@ -18,7 +18,14 @@ function getImages() {
 
 function onImageClick(imgId) {
     gMeme.selectedImgId = imgId;
-    document.querySelector('.editor-container').style.zIndex = 0
+    document.querySelector('.editor-container').style.display = 'flex';
+    document.querySelector('.image-gallery').style.display = 'none';
 
     drawMeme()
+}
+
+function goGallery(){
+    document.querySelector('.editor-container').style.display = 'none';
+    document.querySelector('.image-gallery').style.display = 'grid';
+    console.log('test');
 }

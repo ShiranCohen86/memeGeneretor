@@ -15,7 +15,7 @@
         <a href="#" class="page-logo">Meme Generator</a>
         <nav class="nav-bar">
 
-            <a href="#"> Gallery </a>
+            <a href="#" onclick="goGallery()"> Gallery </a>
             <a href="#"> About </a>
 
         </nav>
@@ -26,7 +26,6 @@
                 <canvas id="meme-canvas" height="500" width="500" onclick=""></canvas>
             </div>
             <div class="canvas-features">
-                <label for="free-text">Write:</label>
                 <input type="text" id="free-text" name="free-text" onkeyup="onUpdateMemeTxt(value)">
                 <button class="add-text" onclick="onAddText()"></button>
                 <button class="increase-font" onclick="onChangeFontSize('up')"></button>

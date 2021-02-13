@@ -138,9 +138,7 @@ button {
         width: 400px;
         margin-block-end: 10px;
     }
-    .image-gallery img {
-        width: 100px;
-    }
+
     .editor-container {
         flex-direction: column;
         align-items: center;

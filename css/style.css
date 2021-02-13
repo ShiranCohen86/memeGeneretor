@@ -1,10 +1,15 @@
-body {
-    margin: 0 auto;
+* {
     touch-action: manipulation;
 }
-a{
+
+body {
+    margin: 0 auto;
+}
+
+a {
     text-decoration: none;
 }
+
 .main-header {
     height: 100px;
     margin-bottom: 70px;
@@ -81,7 +86,6 @@ p {
     padding-inline-end: 30px;
 }
 
-
 .nav-bar li {
     list-style-type: none;
     margin: 0;
@@ -141,7 +145,6 @@ button {
         width: 400px;
         margin-block-end: 10px;
     }
-
     .editor-container {
         flex-direction: column;
         align-items: center;
@@ -169,10 +172,10 @@ button {
         grid-template-rows: repeat(3, 50px);
         gap: 2.5px;
     }
-    .main-header{
+    .main-header {
         height: 50px;
     }
-    .main-container{
+    .main-container {
         margin-inline-start: 0;
         margin-inline-end: 0;
     }

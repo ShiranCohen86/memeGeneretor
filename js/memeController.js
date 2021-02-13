@@ -2,12 +2,14 @@
 
 var gElCanvas;
 var gCtx;
+var gStorageMemes = [];
+
+
 
 
 function init() {
     gElCanvas = document.getElementById('meme-canvas')
     gCtx = gElCanvas.getContext('2d')
-    
     renderGallery()
     addMeme()
 }
@@ -29,7 +31,7 @@ function drawMeme(mark = true) {
 
         if (mark) markLineFocus();
 
-        getCurrMeme().lines.forEach((line) => drawTxtLine(line));
+        getCurrMeme().lines.forEach(drawTxtLine);
         updateTextInput();
     };
 }
@@ -51,8 +53,6 @@ function markLineFocus() {
     gCtx.fill();
 }
 
-
-
 function updateTextInput() {
     const currLineText = getCurrMeme().lines[getSelectedLine()].txt;
     document.querySelector('#free-text').value = currLineText;
@@ -64,7 +64,8 @@ function onAddText() {
 }
 
 function onMoveLine(direction) {
-    (direction === 'up') ? upDownLine(-10) : upDownLine(10);
+    var diff = (direction === 'up') ? -10 : 10;
+    upDownLine(diff)
     drawMeme();
 }
 
@@ -75,7 +76,16 @@ function onSwitchLine() {
 }
 
 function onChangeFontSize(direction) {
-    (direction === 'up') ? changeFontSize(10) : changeFontSize(-10);
+    var diff = (direction === 'up') ? 10 : -10;
+    changeFontSize(diff)
     drawMeme();
 }
 
+function onSaveImage(elLink) {
+    var imgContent = gElCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
+    gStorageMemes.push(imgContent)
+
+
+    saveToStorage('MEMES', gStorageMemes);
+}

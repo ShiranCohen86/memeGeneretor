@@ -14,12 +14,11 @@
     <header class="main-header ">
         <a href="#" class="page-logo" onclick="goGallery()">Meme Generator</a>
         <nav class="nav-bar">
-
             <a href="#" onclick="goGallery()"> Gallery </a>
             <a href="#"> About </a>
-
         </nav>
     </header>
+
     <div class="main-container">
         <div class="editor-container">
             <div class="canvas-display">
@@ -27,24 +26,24 @@
             </div>
             <div class="canvas-features">
                 <input type="text" id="free-text" name="free-text" onkeyup="onUpdateMemeTxt(value)">
-                <button class="add-text" onclick="onAddText()"></button>
-                <button class="increase-font" onclick="onChangeFontSize('up')"></button>
-                <button class="decrease-font" onclick="onChangeFontSize('down')"></button>
-                <button class="line-up" onclick="onMoveLine('up')"></button>
-                <button class="line-down" onclick="onMoveLine('down')"></button>
-                <button class="switch-line" onclick="onSwitchLine()"></button>
-
+                <button class="add-text btn" onclick="onAddText()"></button>
+                <button class="increase-font btn" onclick="onChangeFontSize('up')"></button>
+                <button class="decrease-font btn" onclick="onChangeFontSize('down')"></button>
+                <button class="line-up btn" onclick="onMoveLine('up')"></button>
+                <button class="line-down btn" onclick="onMoveLine('down')"></button>
+                <button class="switch-line btn" onclick="onSwitchLine()"></button>
+                <a class="save-button btn" href="#" onclick="onSaveImage(this)" download="my-img.jpg"></a>
             </div>
-
         </div>
         <div class="image-gallery"></div>
     </div>
+
     <footer class="main-footer">
         <p> &copy; coffeerights 2021 </p>
     </footer>
 
 
-
+    <script src="js/storage-service.js"></script>
     <script src="js/galleryService.js"></script>
     <script src="js/galleryController.js"></script>
     <script src="js/memeService.js"></script>

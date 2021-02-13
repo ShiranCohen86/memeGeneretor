@@ -4,6 +4,9 @@
 
 body {
     margin: 0 auto;
+    background-color: #e3e3e3;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -37,11 +40,11 @@ a {
 .canvas-features {
     display: grid;
     grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
+    grid-template-rows: repeat(4, 100px);
     gap: 5px;
     align-items: center;
     justify-items: center;
-    grid-template-areas: "user-text user-text user-text" "add-text switch-line ." "increase-font decrease-font .";
+    grid-template-areas: "user-text user-text user-text" "add-text switch-line ." "increase-font decrease-font ." "save . .";
 }
 
 #free-text {
@@ -61,25 +64,16 @@ a {
 .decrease-font {
     grid-area: decrease-font;
 }
+.save-button {
+    grid-area: save;
+}
 
 p {
     margin: 0;
 }
 
-.canvas-container {
-    border: 2px solid red;
-}
-
-.canvas-display {
-    border: 2px solid blue;
-}
-
-#my-canvas {
-    border: 2px solid green;
-}
-
 .main-header {
-    background-color: aqua;
+    background-color: #ff7f00;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -94,15 +88,37 @@ p {
 }
 
 .main-footer {
-    background-color: aqua;
+    background-color: #ff7f00;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.editor-container {
-    background-color: rgb(215, 234, 250);
+
+.page-logo{
+    background-image: url(../icons/page-logo.png);
+    background-size: 150px;
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 150px;
+
 }
+/* .gallery-button{
+    background-image: url(../icons/gallery-btn.png);
+    background-size: 150px;
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 150px;
+
+}
+.about-button{
+    background-image: url(../icons/about-btn.png);
+    background-size: 150px;
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 150px;
+
+} */
 
 .add-text {
     background-image: url(../icons/add.png);
@@ -171,6 +187,7 @@ p {
     }
     .canvas-display {
         width: 300px;
+        height: 300px;
     }
     .canvas-features {
         grid-template-columns: repeat(3, 50px);
@@ -183,10 +200,16 @@ p {
     .main-container {
         margin-inline-start: 0;
         margin-inline-end: 0;
+        display: flex;
     }
-    button {
-        width: 40px;
-        height: 40px;
-        background-size: 40px;
+    .btn {
+        width: 50px;
+        height: 50px;
+        background-size: 50px;
+    }
+    .editor-container {
+        justify-content: normal;
+        flex: 1;
+
     }
 }

@@ -76,8 +76,8 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-inline-start: 10px;
-    padding-inline-end: 10px;
+    padding-inline-start: 30px;
+    padding-inline-end: 30px;
 }
 
 
@@ -126,9 +126,9 @@ button {
     cursor: pointer;
     border: none;
     background-position: center;
-    width: 30px;
-    height: 30px;
-    background-size: 30px;
+    width: 80px;
+    height: 80px;
+    background-size: 80px;
 }
 
 @media (max-width: 910px) {
@@ -174,5 +174,10 @@ button {
     .main-container{
         margin-inline-start: 0;
         margin-inline-end: 0;
+    }
+    button {
+        width: 40px;
+        height: 40px;
+        background-size: 40px;
     }
 }

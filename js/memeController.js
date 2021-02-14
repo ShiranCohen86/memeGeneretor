@@ -22,8 +22,8 @@ function onUpdateMemeTxt(txt) {
 function drawMeme(mark = true) {
 
     var img = new Image();
-    if (gStorageMemes.length && gStorageMemes[getCurrMeme().selectedImgId] && gStorageMemes[getCurrMeme().selectedImgId].isSavedLocal) {
-        img.src = gStorageMemes[getCurrMeme().selectedImgId].imgContent
+    if (getCurrMeme().imgContent) {
+        img.src = gStorageMemes[getCurrMeme().selectedImgId - getImages().length +1].imgContent
     } else {
 
         img.src = `img/${getCurrMeme().selectedImgId}.jpg`;
@@ -54,7 +54,10 @@ function markLineFocus() {
     const currLine = getCurrLine();
     gCtx.beginPath();
     gCtx.fillStyle = 'rgba(0, 162, 255, 0.4)';
-    gCtx.rect((currLine.location.x - currLine.width / 2) - 10, currLine.location.y - currLine.fontSize, currLine.width + 20, currLine.fontSize + 5);
+    gCtx.rect((currLine.location.x - currLine.width / 2) - 10, 
+                currLine.location.y - currLine.fontSize, 
+                currLine.width + 20, 
+                currLine.fontSize + 5);
     gCtx.fill();
 }
 
@@ -89,8 +92,15 @@ function onChangeFontSize(direction) {
 function onSaveImage(elLink) {
     var imgContent = gElCanvas.toDataURL(); //.replace("image/png", "image/octet-stream")
     elLink.href = imgContent
-    gStorageMemes.push({ imgContent, id: gStorageMemes.length + 1, isSavedLocal: true })
+    gStorageMemes.push({ imgContent, id: (gStorageMemes.length + getImages().length + 1), isSavedLocal: true })
 
 
     saveToStorage('MEMES', gStorageMemes);
+}
+
+function goMemes(){
+    document.querySelector('.editor-container').style.display = 'none';
+    document.querySelector('.image-gallery').style.display = 'none';
+    document.querySelector('.memes-gallery').style.display = 'grid';
+    renderMemes();
 }

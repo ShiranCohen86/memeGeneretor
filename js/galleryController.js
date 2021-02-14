@@ -42,5 +42,6 @@ function goGallery() {
     document.querySelector('.image-gallery').style.display = 'grid';
     document.querySelector('.memes-gallery').style.display = 'none';
     renderGallery();
+    if (gMeme.selectedImgId === -1) return;
     drawMeme()
 }

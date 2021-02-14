@@ -11,15 +11,13 @@ const TXT_TOP_PADDING = 10;
 var gMeme = { selectedImgId: -1, selectedLineIdx: -1, lines: [] };
 
 function updateMemeTxt(txt) {
-    if (gMeme.selectedLineIdx === -1) return;
+    if (gMeme.selectedLineIdx === -1) {
+        addLine()
+    }
     gMeme.lines[getSelectedLine()].txt = txt;
-
+    updateTextInput()
 }
-function updateTextInput() {
-    const currLineText = (getCurrMeme().lines.length) ? getCurrMeme().lines[getSelectedLine()].txt : '';
-    document.querySelector('#free-text').value = currLineText;
 
-}
 function getCurrMeme() {
     return gMeme;
 }
@@ -39,7 +37,7 @@ function addLine() {
 }
 
 function deleteLine() {
-    if (gMeme.selectedLineIdx === -1) return;
+    // if (gMeme.selectedLineIdx === -1) gMeme.selectedLineIdx++;
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
     gMeme.selectedLineIdx = gMeme.lines.length - 1;
 }

@@ -38,6 +38,7 @@ function onImageClick(imgId) {
 }
 
 function goGallery() {
+    clearCanvas();
     document.querySelector('.editor-container').style.display = 'none';
     document.querySelector('.image-gallery').style.display = 'grid';
     document.querySelector('.memes-gallery').style.display = 'none';

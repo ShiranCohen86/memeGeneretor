@@ -99,13 +99,23 @@ function onSaveImage() {
     var imgContent = gElCanvas.toDataURL(); //.replace("image/png", "image/octet-stream")
     gStorageMemes.push({ imgContent, id: (gStorageMemes.length + getImages().length + 1), meme: getCurrMeme() })
     saveToStorage('MEMES', gStorageMemes);
+    // clearCanvas();
+
 }
 
 function goMemes() {
+    clearCanvas();
     document.querySelector('.editor-container').style.display = 'none';
     document.querySelector('.image-gallery').style.display = 'none';
     document.querySelector('.memes-gallery').style.display = 'grid';
     renderMemes();
+}
+
+function clearCanvas() {
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
+    gMeme.lines = []
+    gMeme.selectedLineIdx = -1
+
 }
 
 // function addListeners() {

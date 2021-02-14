@@ -5,7 +5,7 @@
 #free-text {
     font-size: 30px;
     border-radius: 10px;
-    
+    text-align: center;
 }
 
 body {
@@ -196,6 +196,9 @@ p {
         margin-inline-start: 0;
         margin-inline-end: 0;
     }
+    .canvas-display {
+        margin-inline-end: 0;
+    }
 }
 
 @media (max-width: 450px) {
@@ -206,7 +209,6 @@ p {
     .canvas-display {
         width: 300px;
         height: 300px;
-        margin-inline-end: 0;
         margin-block-end: 10px;
     }
     .canvas-features {

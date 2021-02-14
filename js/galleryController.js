@@ -8,6 +8,7 @@ function renderMemes() {
     var elMemes = document.querySelector('.memes-gallery')
     elMemes.innerHTML = galleryHTML;
 }
+
 function renderGallery() {
     var galleryHTML = '';
     const galleryImages = getImages()

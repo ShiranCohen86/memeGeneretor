@@ -27,12 +27,14 @@
             <div class="canvas-features">
                 <input type="text" id="free-text" name="free-text" onkeyup="onUpdateMemeTxt(value)">
                 <button class="add-text btn" onclick="onAddText()"></button>
+                <button class="delete-text btn" onclick="onDeleteText()"></button>
                 <button class="increase-font btn" onclick="onChangeFontSize('up')"></button>
                 <button class="decrease-font btn" onclick="onChangeFontSize('down')"></button>
                 <button class="line-up btn" onclick="onMoveLine('up')"></button>
                 <button class="line-down btn" onclick="onMoveLine('down')"></button>
                 <button class="switch-line btn" onclick="onSwitchLine()"></button>
-                <a class="save-button btn" href="#" onclick="onSaveImage(this)" download="my-img.png"></a>
+                <a class="save-button btn" href="#" onclick="onSaveImage(this)" ></a>
+                <!-- download="my-img.png" -->
             </div>
         </div>
         <div class="image-gallery gallery"></div>

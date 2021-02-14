@@ -47,6 +47,10 @@ a {
     grid-template-areas: "user-text user-text user-text" "add-text switch-line ." "increase-font decrease-font ." "save . .";
 }
 
+.canvas-display {
+    margin-inline-end: 10px;
+}
+
 #free-text {
     grid-area: user-text;
     align-self: normal;
@@ -64,6 +68,7 @@ a {
 .decrease-font {
     grid-area: decrease-font;
 }
+
 .save-button {
     grid-area: save;
 }
@@ -94,15 +99,14 @@ p {
     align-items: center;
 }
 
-
-.page-logo{
+.page-logo {
     background-image: url(../icons/page-logo.png);
     background-size: 150px;
     background-repeat: no-repeat;
     height: 40px;
     width: 150px;
-
 }
+
 /* .gallery-button{
     background-image: url(../icons/gallery-btn.png);
     background-size: 150px;
@@ -148,6 +152,10 @@ p {
     background-image: url(../icons/save.png);
 }
 
+.delete-text {
+    background-image: url(../icons/delete-text.png);
+}
+
 .btn {
     cursor: pointer;
     border: none;
@@ -164,19 +172,22 @@ p {
     }
     .canvas-display {
         width: 400px;
-        margin-block-end: 10px;
     }
     .editor-container {
         flex-direction: column;
         align-items: center;
     }
     .main-header {
-        margin-bottom: 0;
+        margin-bottom: 10px;
     }
     .canvas-features {
         grid-template-columns: repeat(3, 100px);
         grid-template-rows: repeat(3, 100px);
         gap: 5px;
+    }
+    .main-container {
+        margin-inline-start: 0;
+        margin-inline-end: 0;
     }
 }
 
@@ -188,6 +199,8 @@ p {
     .canvas-display {
         width: 300px;
         height: 300px;
+        margin-inline-end: 0;
+        margin-block-end: 10px;
     }
     .canvas-features {
         grid-template-columns: repeat(3, 50px);
@@ -198,8 +211,6 @@ p {
         height: 50px;
     }
     .main-container {
-        margin-inline-start: 0;
-        margin-inline-end: 0;
         display: flex;
     }
     .btn {
@@ -210,6 +221,5 @@ p {
     .editor-container {
         justify-content: normal;
         flex: 1;
-
     }
 }

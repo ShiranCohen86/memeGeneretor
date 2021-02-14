@@ -11,7 +11,7 @@ function init() {
     gElCanvas = document.getElementById('meme-canvas')
     gCtx = gElCanvas.getContext('2d')
     renderGallery()
-    addMeme()
+    addLine()
 }
 
 function onUpdateMemeTxt(txt) {
@@ -19,13 +19,11 @@ function onUpdateMemeTxt(txt) {
     drawMeme();
 }
 
-function drawMeme(mark = true) {
-
+function drawMeme() {
     var img = new Image();
     if (getCurrMeme().imgContent) {
-        img.src = gStorageMemes[getCurrMeme().selectedImgId - getImages().length +1].imgContent
+        img.src = gStorageMemes[getCurrMeme().selectedImgId].imgContent
     } else {
-
         img.src = `img/${getCurrMeme().selectedImgId}.jpg`;
     }
 
@@ -34,7 +32,7 @@ function drawMeme(mark = true) {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
         setLinesWidth();
 
-        if (mark) markLineFocus();
+        if (getCurrMeme().selectedLineIdx > -1) markLineFocus();
 
         getCurrMeme().lines.forEach(drawTxtLine);
         updateTextInput();
@@ -54,20 +52,15 @@ function markLineFocus() {
     const currLine = getCurrLine();
     gCtx.beginPath();
     gCtx.fillStyle = 'rgba(0, 162, 255, 0.4)';
-    gCtx.rect((currLine.location.x - currLine.width / 2) - 10, 
-                currLine.location.y - currLine.fontSize, 
-                currLine.width + 20, 
-                currLine.fontSize + 5);
+    gCtx.rect((currLine.location.x - currLine.width / 2) - 10,
+        currLine.location.y - currLine.fontSize,
+        currLine.width + 20,
+        currLine.fontSize + 5);
     gCtx.fill();
 }
 
-function updateTextInput() {
-    const currLineText = getCurrMeme().lines[getSelectedLine()].txt;
-    document.querySelector('#free-text').value = currLineText;
-}
-
 function onAddText() {
-    addMeme();
+    addLine();
     drawMeme();
 }
 
@@ -79,7 +72,6 @@ function onMoveLine(direction) {
 
 function onSwitchLine() {
     switchSelectedLines();
-    updateTextInput();
     drawMeme();
 }
 
@@ -88,17 +80,21 @@ function onChangeFontSize(direction) {
     changeFontSize(diff)
     drawMeme();
 }
+function onDeleteText() {
+    deleteLine();
+    
+    drawMeme();
+
+}
 
 function onSaveImage(elLink) {
     var imgContent = gElCanvas.toDataURL(); //.replace("image/png", "image/octet-stream")
     elLink.href = imgContent
     gStorageMemes.push({ imgContent, id: (gStorageMemes.length + getImages().length + 1), isSavedLocal: true })
-
-
     saveToStorage('MEMES', gStorageMemes);
 }
 
-function goMemes(){
+function goMemes() {
     document.querySelector('.editor-container').style.display = 'none';
     document.querySelector('.image-gallery').style.display = 'none';
     document.querySelector('.memes-gallery').style.display = 'grid';

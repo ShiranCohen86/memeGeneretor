@@ -47,7 +47,7 @@ a {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(4, 100px);
-    gap: 5px;
+    gap: 20px;
     align-items: center;
     justify-items: center;
     grid-template-areas: "user-text user-text user-text" "add-text switch-line ." "increase-font decrease-font ." "save . .";
@@ -190,7 +190,7 @@ p {
     .canvas-features {
         grid-template-columns: repeat(3, 100px);
         grid-template-rows: repeat(3, 100px);
-        gap: 5px;
+        
     }
     .main-container {
         margin-inline-start: 0;
@@ -214,7 +214,7 @@ p {
     .canvas-features {
         grid-template-columns: repeat(3, 50px);
         grid-template-rows: repeat(3, 50px);
-        gap: 2.5px;
+        gap: 10px;
     }
     .main-header {
         height: 50px;

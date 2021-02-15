@@ -97,7 +97,7 @@ function onDeleteText() {
 
 function onSaveImage(elLink) {
     clearMark()
-    var imgContent = gElCanvas.toDataURL().replace("image/png", "image/octet-stream")
+    var imgContent = gElCanvas.toDataURL("image/octet-stream");//.replace("image/png", "image/octet-stream")
     elLink.href = imgContent
     gStorageMemes.push({ imgContent, id: (gStorageMemes.length + getImages().length + 1), meme: getCurrMeme() })
     saveToStorage('MEMES', gStorageMemes)

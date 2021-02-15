@@ -95,8 +95,9 @@ function onDeleteText() {
     drawMeme();
 }
 
-function onSaveImage() {
-    var imgContent = gElCanvas.toDataURL(); //.replace("image/png", "image/octet-stream")
+function onSaveImage(elLink) {
+    var imgContent = gElCanvas.toDataURL('image/jpeg'); //.replace("image/png", "image/octet-stream")
+    elLink.href = imgContent;
     gStorageMemes.push({ imgContent, id: (gStorageMemes.length + getImages().length + 1), meme: getCurrMeme() })
     saveToStorage('MEMES', gStorageMemes);
     // clearCanvas();

@@ -33,7 +33,7 @@
                 <button class="line-up btn" onclick="onMoveLine('up')"></button>
                 <button class="line-down btn" onclick="onMoveLine('down')"></button>
                 <button class="switch-line btn" onclick="onSwitchLine()"></button>
-                <a class="save-button btn" href="#" download="my-img.jpg" onclick="onSaveImage(this)" ></a>
+                <a class="save-button btn" href="#" download="my-img.png" onclick="onSaveImage()" ></a>
                 
             </div>
         </div>
